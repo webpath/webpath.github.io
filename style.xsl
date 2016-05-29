@@ -7,7 +7,7 @@
       <body>
         <h1>Hello world</h1>
         <table border="1">
-        <xsl:for-each select="root/user[@name='A']">
+        <xsl:for-each select="root/user[id > 1]">
           <tr>
             <th><xsl:value-of select="concat(firstName, '++..++ OK OK ++..++', lastName)"/></th>
             <th><xsl:value-of select="lastName"/></th>
