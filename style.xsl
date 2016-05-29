@@ -9,7 +9,7 @@
         <table>
         <xsl:for-each select=".//root/user[@name='A']">
           <tr>
-            <th><xsl:value-of select="firstName"/></th>
+            <th><xsl:value-of select="concat(firstName, '++..++ OK ++..++', lastName)"/></th>
             <th><xsl:value-of select="lastName"/></th>
             <th><xsl:value-of select="address"/></th>
           </tr>
