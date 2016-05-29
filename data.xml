@@ -6,17 +6,20 @@
     <firstName>First name 1</firstName>
     <lastName>Last name 1</lastName>
     <address>Address 1</address>
+    <price>30</price>
   </user>
   <user name="B">
     <id>2</id>
     <firstName>First name 2</firstName>
     <lastName>Last name 2</lastName>
     <address>Address 2</address>
+    <price>30</price>
   </user>
   <user name="C">
     <id>3</id>
     <firstName>First name 3</firstName>
     <lastName>Last name 3</lastName>
     <address>Address 3</address>
+    <price>30</price>
   </user>
 </root>
