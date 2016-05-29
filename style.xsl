@@ -6,16 +6,15 @@
       </head>
       <body>
         <h1>Hello world</h1>
-        <xsl:for-each select="">
-          <table>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </table>
+        <table>
+        <xsl:for-each select="root/user">
+          <tr>
+            <th><xsl:value-of select="firstName"/></th>
+            <th><xsl:value-of select="lastName"/></th>
+            <th><xsl:value-of select="address"/></th>
+          </tr>
         </xsl:for-each>
+        </table>
       </body>
     </html>
   </xsl:template>
