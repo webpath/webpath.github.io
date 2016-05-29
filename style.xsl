@@ -12,6 +12,7 @@
             <th><xsl:value-of select="concat(firstName, '++..++ OK OK ++..++', lastName)"/></th>
             <th><xsl:value-of select="lastName"/></th>
             <th><xsl:value-of select="address"/></th>
+            <th><xsl:value-of select="price - 1"/></th>
           </tr>
         </xsl:for-each>
         </table>
