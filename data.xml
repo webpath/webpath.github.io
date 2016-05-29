@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?stylesheet type="text/xsl" href="style.xsl" ?>
+<root>
+  <user>
+    <firstName>Jail</firstName>
+    <lastName>Breaker</lastName>
+    <address>Kernel Mode</address>
+  </user>
+</root>
