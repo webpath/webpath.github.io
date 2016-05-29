@@ -6,7 +6,16 @@
       </head>
       <body>
         <h1>Hello world</h1>
-        
+        <xsl:for-each select="">
+          <table>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </table>
+        </xsl:for-each>
       </body>
     </html>
   </xsl:template>
