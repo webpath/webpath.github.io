@@ -2,8 +2,21 @@
 <?xml-stylesheet type="text/xsl" href="style.xsl" ?>
 <root>
   <user>
-    <firstName>Jail</firstName>
-    <lastName>Breaker</lastName>
-    <address>Kernel Mode</address>
+    <id>1</id>
+    <firstName>First name 1</firstName>
+    <lastName>Last name 1</lastName>
+    <address>Address 1</address>
+  </user>
+  <user>
+    <id>2</id>
+    <firstName>First name 2</firstName>
+    <lastName>Last name 2</lastName>
+    <address>Address 2</address>
+  </user>
+  <user>
+    <id>3</id>
+    <firstName>First name 3</firstName>
+    <lastName>Last name 3</lastName>
+    <address>Address 3</address>
   </user>
 </root>
