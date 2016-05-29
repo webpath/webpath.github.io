@@ -15,9 +15,9 @@
             <th><xsl:value-of select="price - 1"/></th>
           </tr>
         </xsl:for-each>
-        <span>The sum is: 
+        <tr colspan="4">The sum is: 
           <xsl:value-of select="sum(root/user/price)"/>
-        </span>
+        </tr>
         </table>
       </body>
     </html>
