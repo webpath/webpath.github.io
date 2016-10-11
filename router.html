@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<center>
+  <form action="WlanMacFilterRpm.htm" enctype="multipart/form-data" method="get">
+    <table style="width: 100%;" id="autoWidth" border="0">
+      <tbody><tr>
+        <td class="h1" colspan="2" id="t_title">Wireless MAC Filtering</td>
+      </tr>
+      <tr>
+        <td class="blue" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><table border="0">
+            <tbody><tr>
+              <td class="ListB" id="t_macAddrFlt" style="padding-left:45px">Wireless MAC Filtering:&nbsp;&nbsp;</td>
+              <td class="emp"><script type="text/javascript">
+(wlanFilterPara[0] == 0)?(document.write("<span id=\"t_disabled\">Disabled</span>")):(document.write("<span id=\"t_enabled\">Enabled</span>"));
+</script><span id="t_disabled">Disabled</span>
+                &nbsp;&nbsp;</td>
+              <td><input name="Enfilter" class="button" value="Enable" onclick="doModifyStatus();" style="display: block;" type="button">
+                <input name="Disfilter" class="button" value="Disable" onclick="doModifyStatus();" style="display:none" type="button"></td>
+              <td width="50%">&nbsp;</td>
+              <td width="50%">&nbsp;</td>
+            </tr>
+          </tbody></table></td>
+      </tr>
+      <tr>
+        <td class="blue" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="h2" colspan="2" id="t_fltRules">Filtering Rules</td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input name="ExcludeUnlisted" value="1" onclick="doClick(0);" type="radio">
+          <span style="color:#FF0000" id="t_deny">Deny</span> <span id="t_deny_note">the stations specified by any enabled entries in the list to access.</span></td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input name="ExcludeUnlisted" value="2" onclick="doClick(1);" type="radio">
+          <span style="color:#FF0000" id="t_allow">Allow</span> <span id="t_allow_note">the stations specified by any enabled entries in the list to access.</span></td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2"><table border="0">
+            <!-- Write Title Line -->
+            <tbody><tr>
+              <td class="ListB" id="t_id">ID</td>
+              <td class="ListB" id="t_macAddr">MAC Address</td>
+              <td class="ListB" id="t_status">Status</td>
+              <script type="text/javascript">
+    if (8 != wlanFilterPara[7])
+    {
+        document.write("<TD class=ListB id=\"t_priv\">Privilege</TD>");
+        document.write("<TD class=ListB id=\"t_wep_key\">WEP Key</TD>");
+    }
+</script>
+              <td class="ListB" id="t_dsp">Description</td>
+              <td class="ListB" id="t_modify">Modify</td>
+            </tr>
+            <!-- Write the mac filter list  -->
+            <script type="text/javascript">
+if (wlanFilterPara[5] > 0)
+{
+    var row = 0;
+    var statusString;
+    var idStart = (wlanFilterPara[3]-1)*8;
+    var privilegeIndex;
+    var modifyId;
+    for(var i = 0; i < wlanFilterPara[5]; i++)
+   {
+        modifyId = idStart;
+        idStart++;
+        row = i * wlanFilterPara[6];
+        privilegeIndex = wlanFilterList[row+2];
+            statusString = (wlanFilterList[row+1] == 1)?'<span id="t_wl_mac_en" name="t_wl_mac_en">Enabled</span>':'<span id="t_wl_mac_dis" name="t_wl_mac_dis">Disabled</span>';
+        document.write('<tr><td class=ListB>' + idStart + '</td>');
+            document.write('<td class=ListB>' + wlanFilterList[row] + '</td>');
+            document.write('<td class=ListB>' + statusString + '</td>');
+            if (8 != wlanFilterPara[7])
+            {
+                document.write('<td class=ListB>' + wlanFIlterStringArray[privilegeIndex] + '</td>');
+                document.write('<td class=ListB>' + wlanFilterList[row+3] + '</td>');
+            }
+            document.write('<td class=ListB>' + wlanFilterList[row+4] + '</td>');
+            document.write('<td class=ListB><a href=\"/userRpm/WlanMacFilterRpm.htm?Modify='
+                + modifyId
+                + '&Page='
+                + wlanFilterPara[3]
+                + '\" OnMouseOver=\"return ResetStatus(\'modify\');\" id="t_but_modi" name="t_but_modi">Modify</a>&nbsp;<a href=\"/userRpm/WlanMacFilterRpm.htm?Del='
+                + modifyId
+                + '&Page='
+                + wlanFilterPara[3]
+                + '\" OnMouseOver=\"return ResetStatus(\'delete\');\" id="t_delete" name="t_delete">Delete</a></td></tr>'
+            );
+    }
+}
+</script><tr><td class="ListB">1</td><td class="ListB">90-E7-C4-E0-C3-D1</td><td class="ListB"><span id="t_wl_mac_dis" name="t_wl_mac_dis">Disabled</span></td><td class="ListB">htc m9 plus</td><td class="ListB"><a href="/userRpm/WlanMacFilterRpm.htm?Modify=0&amp;Page=1" onmouseover="return ResetStatus('modify');" id="t_but_modi" name="t_but_modi">Modify</a>&nbsp;<a href="/userRpm/WlanMacFilterRpm.htm?Del=0&amp;Page=1" onmouseover="return ResetStatus('delete');" id="t_delete" name="t_delete">Delete</a></td></tr><tr><td class="ListB">2</td><td class="ListB">0C-84-DC-20-F7-B3</td><td class="ListB"><span id="t_wl_mac_dis" name="t_wl_mac_dis">Disabled</span></td><td class="ListB">PC - DHIA</td><td class="ListB"><a href="/userRpm/WlanMacFilterRpm.htm?Modify=1&amp;Page=1" onmouseover="return ResetStatus('modify');" id="t_but_modi" name="t_but_modi">Modify</a>&nbsp;<a href="/userRpm/WlanMacFilterRpm.htm?Del=1&amp;Page=1" onmouseover="return ResetStatus('delete');" id="t_delete" name="t_delete">Delete</a></td></tr><tr><td class="ListB">3</td><td class="ListB">A0-91-69-E8-EF-9B</td><td class="ListB"><span id="t_wl_mac_dis" name="t_wl_mac_dis">Disabled</span></td><td class="ListB">Hawra</td><td class="ListB"><a href="/userRpm/WlanMacFilterRpm.htm?Modify=2&amp;Page=1" onmouseover="return ResetStatus('modify');" id="t_but_modi" name="t_but_modi">Modify</a>&nbsp;<a href="/userRpm/WlanMacFilterRpm.htm?Del=2&amp;Page=1" onmouseover="return ResetStatus('delete');" id="t_delete" name="t_delete">Delete</a></td></tr><tr><td class="ListB">4</td><td class="ListB">A0-CB-FD-B7-80-EA</td><td class="ListB"><span id="t_wl_mac_dis" name="t_wl_mac_dis">Disabled</span></td><td class="ListB">Tap E</td><td class="ListB"><a href="/userRpm/WlanMacFilterRpm.htm?Modify=3&amp;Page=1" onmouseover="return ResetStatus('modify');" id="t_but_modi" name="t_but_modi">Modify</a>&nbsp;<a href="/userRpm/WlanMacFilterRpm.htm?Del=3&amp;Page=1" onmouseover="return ResetStatus('delete');" id="t_delete" name="t_delete">Delete</a></td></tr><tr><td class="ListB">5</td><td class="ListB">34-23-87-4B-3D-7F</td><td class="ListB"><span id="t_wl_mac_dis" name="t_wl_mac_dis">Disabled</span></td><td class="ListB">Hawra pc</td><td class="ListB"><a href="/userRpm/WlanMacFilterRpm.htm?Modify=4&amp;Page=1" onmouseover="return ResetStatus('modify');" id="t_but_modi" name="t_but_modi">Modify</a>&nbsp;<a href="/userRpm/WlanMacFilterRpm.htm?Del=4&amp;Page=1" onmouseover="return ResetStatus('delete');" id="t_delete" name="t_delete">Delete</a></td></tr><tr><td class="ListB">6</td><td class="ListB">50-2E-5C-00-C4-A3</td><td class="ListB"><span id="t_wl_mac_dis" name="t_wl_mac_dis">Disabled</span></td><td class="ListB">Mother</td><td class="ListB"><a href="/userRpm/WlanMacFilterRpm.htm?Modify=5&amp;Page=1" onmouseover="return ResetStatus('modify');" id="t_but_modi" name="t_but_modi">Modify</a>&nbsp;<a href="/userRpm/WlanMacFilterRpm.htm?Del=5&amp;Page=1" onmouseover="return ResetStatus('delete');" id="t_delete" name="t_delete">Delete</a></td></tr>
+          </tbody></table></td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2"><input value="Add New..." name="Add" class="buttonBig" onclick="doAdd(curPage);" type="button">
+          &nbsp;
+          <input value="Enable All" name="EnAll" class="buttonBig" onclick="doAll('EnAll');" type="button">
+          &nbsp;
+          <input value="Disable All" name="DisAll" class="buttonBig" onclick="doAll('DisAll');" type="button">
+          &nbsp;
+          <input value="Delete All" name="DelAll" class="buttonBig" onclick="doAll('DelAll');" type="button"></td>
+      </tr>
+      <tr>
+        <td class="blue" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="mbtn" colspan="2"><input disabled="" name="PrevPage" class="buttonBig" onclick="doPage(pPage);" value="Previous" type="button">
+          &nbsp;
+          <input disabled="" name="NextPage" class="buttonBig" onclick="doPage(nPage);" value="Next" type="button"></td>
+      </tr>
+    </tbody></table>
+  </form>
+</center>
+</body>
+</html>
